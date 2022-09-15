@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Product;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,11 +16,51 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        Product::factory(100)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+
+        DB::table('entity_types')->insert([
+            'name' => 'user',
+        ]);
+        DB::table('entity_types')->insert([
+            'name' => 'product',
+        ]);
+
+
+        DB::table('attributes')->insert([
+            'name' => 'categories',
+            'entity_type_id' => 2
+        ]);
+        DB::table('attributes')->insert([
+            'name' => 'cities',
+            'entity_type_id' => 2
+        ]);
+
+
+        DB::table('varchar_values')->insert([
+            'entity_id' => 1,
+            'entity_type_id' => 2,
+            'attribute_id' => 1,
+            'value' => 'Телефоны'
+        ]);
+        DB::table('varchar_values')->insert([
+            'entity_id' => 1,
+            'entity_type_id' => 2,
+            'attribute_id' => 1,
+            'value' => 'Машины'
+        ]);
+
+        DB::table('varchar_values')->insert([
+            'entity_id' => 1,
+            'entity_type_id' => 2,
+            'attribute_id' => 2,
+            'value' => 'Ковров'
+        ]);
+        DB::table('varchar_values')->insert([
+            'entity_id' => 1,
+            'entity_type_id' => 2,
+            'attribute_id' => 2,
+            'value' => 'Владимир'
+        ]);
     }
 }

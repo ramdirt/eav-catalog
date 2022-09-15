@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('varchar_values', function (Blueprint $table) {
             $table->id();
-            $table->string('sku')->unique();
-            $table->float('price');
+            $table->integer('entity_id');
+            $table->integer('entity_type_id');
+            $table->integer('attribute_id');
+            $table->string('value');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('varchar_values');
     }
 };

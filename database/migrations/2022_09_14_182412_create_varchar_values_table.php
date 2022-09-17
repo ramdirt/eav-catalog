@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('varchar_values', function (Blueprint $table) {
+        Schema::create('varchars', function (Blueprint $table) {
             $table->id();
             $table->integer('entity_id');
-            $table->integer('entity_type_id');
+            $table->integer('type_id');
             $table->integer('attribute_id');
             $table->string('value');
             $table->timestamps();

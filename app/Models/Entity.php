@@ -2,28 +2,22 @@
 
 namespace App\Models;
 
-use App\Models\Attribute;
-use Database\Factories\ProductFactory;
+use Database\Factories\EntityFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Product extends Model
+class Entity extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'sku',
-        'price'
-    ];
 
     protected $hidden = [
         'created_at',
         'updated_at'
     ];
 
-    protected static function newFactory(): ProductFactory
+    protected static function newFactory(): EntityFactory
     {
-        return new ProductFactory();
+        return new EntityFactory();
     }
 
     public function attributes()

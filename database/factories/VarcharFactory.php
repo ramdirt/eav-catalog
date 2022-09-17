@@ -4,14 +4,14 @@ namespace Database\Factories;
 
 use App\Models\Entity;
 use App\Models\Product;
+use App\Models\Attribute;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Product>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Varchar>
  */
-class ProductFactory extends Factory
+class VarcharFactory extends Factory
 {
-    protected $model = Product::class;
     /**
      * Define the model's default state.
      *
@@ -20,8 +20,7 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'sku' => 'TST' . rand(1, 100000),
-            'price' => rand(100, 1000),
+            'value' => 'value__' . rand(1, 123)
         ];
     }
 }

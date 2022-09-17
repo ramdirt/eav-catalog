@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Product;
+use App\Models\Varchar;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $products = Product::all();
+    $products = Product::paginate(25);
+    $varchar = Varchar::paginate(25)->where('value', 'North Felix');
 
-    return view('welcome', compact('products'));
+    return view('welcome', compact('products', 'varchar'));
 });

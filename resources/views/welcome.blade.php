@@ -9,7 +9,10 @@
 </head>
 
 <body class="antialiased">
-    @foreach ($products as $product)
+    {{-- @foreach ($products as $product)
+        <p>{{ $product }}</p>
+    @endforeach --}}
+    @foreach ($varchar as $product)
         <p>{{ $product }}</p>
     @endforeach
 </body>
